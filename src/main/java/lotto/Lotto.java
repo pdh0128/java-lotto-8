@@ -17,10 +17,10 @@ public class Lotto {
         }
     }
 
-    public Lotto purchase(List<Integer> numbers) {
-        validate(numbers);
-        sortNumbersOrderByAsc(numbers);
+    public static Lotto purchase(List<Integer> numbers) {
         Lotto lotto = new Lotto(numbers);
+        lotto.validate(numbers);
+        lotto.sortNumbersOrderByAsc(numbers);
         return lotto;
     }
 
