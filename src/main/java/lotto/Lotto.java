@@ -29,9 +29,9 @@ public class Lotto {
     }
 
     public void printNumbers() {
-        for(Integer number : numbers) {
-            System.out.println(number);
-        }
+        System.out.println("[");
+        System.out.println(String.join(String.valueOf(numbers), ", "));
+        System.out.println("]");
     }
 
     // TODO: 추가 기능 구현
