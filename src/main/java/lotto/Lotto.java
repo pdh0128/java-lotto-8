@@ -28,5 +28,11 @@ public class Lotto {
         Collections.sort(numbers);
     }
 
+    public void printNumbers() {
+        for(Integer number : numbers) {
+            System.out.println(number);
+        }
+    }
+
     // TODO: 추가 기능 구현
 }

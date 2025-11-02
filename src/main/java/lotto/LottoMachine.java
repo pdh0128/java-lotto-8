@@ -21,6 +21,7 @@ public class LottoMachine {
         for(int i = 0; i < purchaseLottoCount; i++) {
             List<Integer> lottoNumbers = Randoms.pickUniqueNumbersInRange(1, 45, 6);
             Lotto lotto = new Lotto(lottoNumbers);
+            lotto.printNumbers();
             lottos.add(lotto);
         }
         return  lottos;
