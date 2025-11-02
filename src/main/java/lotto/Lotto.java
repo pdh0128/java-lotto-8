@@ -1,10 +1,11 @@
 package lotto;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 public class Lotto {
-    private final List<Integer> numbers;
+    private List<Integer> numbers;
 
     public Lotto(List<Integer> numbers) {
         validate(numbers);
@@ -25,7 +26,9 @@ public class Lotto {
     }
 
     private void sortNumbersOrderByAsc(List<Integer> numbers) {
-        Collections.sort(numbers);
+        List<Integer> sorted = new ArrayList<>(numbers);
+        Collections.sort(sorted);
+        this.numbers = sorted;
     }
 
     public void printNumbers() {

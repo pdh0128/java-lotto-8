@@ -37,7 +37,7 @@ public class LottoMachine {
         System.out.println("담청 통계");
         System.out.println("---");
 
-        System.out.println("3개 일치 (5,000원) -" + lottoWinningNumbers.getOrDefault(LottoResult.THREE, 0) + "개");
+        System.out.println("3개 일치 (5,000원) - " + lottoWinningNumbers.getOrDefault(LottoResult.THREE, 0) + "개");
         System.out.println("4개 일치 (50,000원) - " + lottoWinningNumbers.getOrDefault(LottoResult.FOUR, 0) + "개");
         System.out.println("5개 일치 (1,500,000원) - " + lottoWinningNumbers.getOrDefault(LottoResult.FIVE, 0) + "개");
         System.out.println("5개 일치, 보너스 볼 일치 (30,000,000원) - " + lottoWinningNumbers.getOrDefault(LottoResult.FIVE_AND_BONUS, 0) + "개");
@@ -45,7 +45,7 @@ public class LottoMachine {
 
         int revenue = calcurateRevenue(lottoWinningNumbers);
         double revenueRate = ((double) revenue / (lottos.size() * 1000)) * 100;
-        System.out.println("총 수익률은 " + revenueRate + " 입니다.");
+        System.out.println("총 수익률은 " + revenueRate + "%입니다.");
     }
 
     private static int calcurateRevenue(Map<LottoResult, Integer> lottoWinningNumbers) {
