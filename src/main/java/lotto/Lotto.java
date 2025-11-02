@@ -21,6 +21,7 @@ public class Lotto {
     }
 
     public static Lotto purchase(List<Integer> numbers) {
+        LottoInputValidator.validateNumberRange(numbers);
         Lotto lotto = new Lotto(numbers);
         lotto.validate(numbers);
         lotto.sortNumbersOrderByAsc(numbers);
