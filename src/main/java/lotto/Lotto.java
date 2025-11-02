@@ -3,11 +3,13 @@ package lotto;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 
 public class Lotto {
     private List<Integer> numbers;
 
     public Lotto(List<Integer> numbers) {
+        numbers = List.copyOf(Set.copyOf(numbers));
         validate(numbers);
         this.numbers = numbers;
     }

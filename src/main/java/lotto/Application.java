@@ -2,14 +2,13 @@ package lotto;
 
 import camp.nextstep.edu.missionutils.Console;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Application {
 
     public static void main(String[] args) {
-        int lottoPurchaseMoney = Integer.parseInt(Console.readLine()); // 로또 구입 금액
-        LottoInputValidator.validateDivision(lottoPurchaseMoney);
+        int lottoPurchaseMoney = inputLottoPurchaseMoney();
+
         List<Lotto> lottos = LottoMachine.purchaseLottos(lottoPurchaseMoney);
 
         System.out.println();
@@ -26,5 +25,19 @@ public class Application {
 
         LottoMachine.printResult(lottos, successNumbers, bonusNumber);
 
+    }
+
+    private static int inputLottoPurchaseMoney() {
+        int lottoPurchaseMoney;
+        while (true) {
+            try {
+                lottoPurchaseMoney = Integer.parseInt(Console.readLine());
+                LottoInputValidator.validateDivision(lottoPurchaseMoney);
+                break;
+            } catch (IllegalArgumentException e) {
+                System.out.println("[ERROR] 구입 금액은 1,000으로 나누어 떨어져야합니다.");
+            }
+        }
+        return lottoPurchaseMoney;
     }
 }
