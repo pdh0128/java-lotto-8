@@ -8,19 +8,12 @@ import java.util.List;
 public class LottoMachine {
     private static final int lottoPrice = 1000;
 
-    private final List<Integer> successNumbers;
-    private final int bonusNumber;
-
-    public LottoMachine(List<Integer> successNumbers, int bonusNumber) {
-        this.successNumbers = successNumbers;
-        this.bonusNumber = bonusNumber;
-    }
-
-    public void execute(int purchaseMoney) {
+    public static List<Lotto> purchaseLottos(int purchaseMoney) {
         List<Lotto> lottos = purchaseLotto(purchaseMoney);
+        return lottos;
     }
 
-    private List<Lotto> purchaseLotto(int purchaseMoney) {
+    private static List<Lotto> purchaseLotto(int purchaseMoney) {
         int purchaseLottoCount = purchaseMoney / lottoPrice;
         System.out.println(purchaseLottoCount + "개를 구매했습니다.");
 
