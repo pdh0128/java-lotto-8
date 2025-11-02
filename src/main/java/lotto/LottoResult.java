@@ -26,7 +26,6 @@ public enum LottoResult {
                 .count();
         boolean winningBonusNumber = numbers.contains(bonusNumber);
 
-        System.out.println(count);
         return LottoResult.fromCount(count, winningBonusNumber);
     }
 

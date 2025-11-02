@@ -44,9 +44,8 @@ public class LottoMachine {
         System.out.println("6개 일치 (2,000,000,000원) - " + lottoWinningNumbers.getOrDefault(LottoResult.SIX, 0) + "개");
 
         int revenue = calcurateRevenue(lottoWinningNumbers);
-//        float revenueRate =
-//        System.out.println("총 수익률은 " + revenueRate + " 입니다.");
-
+        double revenueRate = ((double) revenue / (lottos.size() * 1000)) * 100;
+        System.out.println("총 수익률은 " + revenueRate + " 입니다.");
     }
 
     private static int calcurateRevenue(Map<LottoResult, Integer> lottoWinningNumbers) {
