@@ -25,4 +25,11 @@ public class LottoMachine {
         }
         return  lottos;
     }
+
+    public static int printResult(List<Lotto> lottos, List<Integer> successNumbers, int bonusNumber) {
+        System.out.println("담청 통계");
+        System.out.println("---");
+
+        return 0;
+    }
 }
