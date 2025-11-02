@@ -3,9 +3,11 @@ package lotto;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class LottoTest {
     @Test
@@ -21,5 +23,15 @@ class LottoTest {
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
-    // TODO: 추가 기능 구현에 따른 테스트 코드 작성
+    @Test
+    void 모든번호일치_6개_일치() {
+        Lotto lotto = new Lotto(Arrays.asList(1, 2, 3, 4, 5, 6));
+        List<Integer> successNumbers = Arrays.asList(1, 2, 3, 4, 5, 6);
+        int bonusNumber = 7;
+
+        LottoResult result = lotto.winning(successNumbers, bonusNumber);
+
+        assertEquals(LottoResult.SIX, result);
+    }
+
 }
