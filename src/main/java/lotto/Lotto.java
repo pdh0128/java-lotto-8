@@ -1,5 +1,6 @@
 package lotto;
 
+import java.util.Collections;
 import java.util.List;
 
 public class Lotto {
@@ -14,6 +15,17 @@ public class Lotto {
         if (numbers.size() != 6) {
             throw new IllegalArgumentException("[ERROR] 로또 번호는 6개여야 합니다.");
         }
+    }
+
+    public Lotto purchase(List<Integer> numbers) {
+        validate(numbers);
+        sortNumbersOrderByAsc(numbers);
+        Lotto lotto = new Lotto(numbers);
+        return lotto;
+    }
+
+    private void sortNumbersOrderByAsc(List<Integer> numbers) {
+        Collections.sort(numbers);
     }
 
     // TODO: 추가 기능 구현
