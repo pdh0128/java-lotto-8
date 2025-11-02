@@ -29,9 +29,14 @@ public class Lotto {
     }
 
     public void printNumbers() {
-        System.out.println("[");
-        System.out.println(String.join(String.valueOf(numbers), ", "));
-        System.out.println("]");
+        StringBuilder sb = new StringBuilder();
+        sb.append("[");
+        List<String> numberTexts = this.numbers.stream()
+                .map(String::valueOf)
+                .toList();
+        sb.append(String.join(", ", numberTexts));
+        sb.append("]");
+        System.out.println(sb);
     }
 
     public LottoResult winning(List<Integer> successNumbers, int bonusNumber) {

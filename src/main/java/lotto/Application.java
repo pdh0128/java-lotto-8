@@ -13,8 +13,7 @@ public class Application {
         int lottoPurchaseMoney = Integer.parseInt(Console.readLine()); // 로또 구입 금액
         LottoInputValidator.validateDivision(lottoPurchaseMoney);
         List<Lotto> lottos = LottoMachine.purchaseLottos(lottoPurchaseMoney);
-
-        int rateOfReturn = LottoMachine.printResult(lottos, successNumbers, bonusNumber);
+        LottoMachine.printResult(lottos, successNumbers, bonusNumber);
 
     }
 }

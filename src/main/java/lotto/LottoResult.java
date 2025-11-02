@@ -12,6 +12,10 @@ public enum LottoResult {
 
     private final int price;
 
+    public int getPrice() {
+        return price;
+    }
+
     LottoResult(int price) {
         this.price = price;
     }
@@ -22,6 +26,7 @@ public enum LottoResult {
                 .count();
         boolean winningBonusNumber = numbers.contains(bonusNumber);
 
+        System.out.println(count);
         return LottoResult.fromCount(count, winningBonusNumber);
     }
 

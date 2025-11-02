@@ -31,19 +31,35 @@ public class LottoMachine {
         return lottos;
     }
 
-    public static int printResult(List<Lotto> lottos, List<Integer> successNumbers, int bonusNumber) {
+    public static void printResult(List<Lotto> lottos, List<Integer> successNumbers, int bonusNumber) {
         Map<LottoResult, Integer> lottoWinningNumbers = winning(lottos, successNumbers, bonusNumber);
 
         System.out.println("담청 통계");
         System.out.println("---");
 
-        System.out.println("3개 일치 (5,000원) -" + lottoWinningNumbers.get(LottoResult.THREE) + "개");
-        System.out.println("4개 일치 (50,000원) - " + lottoWinningNumbers.get(LottoResult.FOUR) + "개");
-        System.out.println("5개 일치 (1,500,000원) - " + lottoWinningNumbers.get(LottoResult.FOUR) + "개");
-        System.out.println("5개 일치, 보너스 볼 일치 (30,000,000원) - " + lottoWinningNumbers.get(LottoResult.FIVE_AND_BONUS) + "개");
-        System.out.println("6개 일치 (2,000,000,000원) - " + lottoWinningNumbers.get(LottoResult.SIX) + "개");
+        System.out.println("3개 일치 (5,000원) -" + lottoWinningNumbers.getOrDefault(LottoResult.THREE, 0) + "개");
+        System.out.println("4개 일치 (50,000원) - " + lottoWinningNumbers.getOrDefault(LottoResult.FOUR, 0) + "개");
+        System.out.println("5개 일치 (1,500,000원) - " + lottoWinningNumbers.getOrDefault(LottoResult.FIVE, 0) + "개");
+        System.out.println("5개 일치, 보너스 볼 일치 (30,000,000원) - " + lottoWinningNumbers.getOrDefault(LottoResult.FIVE_AND_BONUS, 0) + "개");
+        System.out.println("6개 일치 (2,000,000,000원) - " + lottoWinningNumbers.getOrDefault(LottoResult.SIX, 0) + "개");
 
-        return 0;
+        int revenue = calcurateRevenue(lottoWinningNumbers);
+//        float revenueRate =
+//        System.out.println("총 수익률은 " + revenueRate + " 입니다.");
+
+    }
+
+    private static int calcurateRevenue(Map<LottoResult, Integer> lottoWinningNumbers) {
+        return lottoWinningNumbers.entrySet()
+                .stream()
+                .map(result -> {
+                        LottoResult lottoResult = (LottoResult) result.getKey();
+                        int price = lottoResult.getPrice() * result.getValue();
+                        return price;
+                    }
+                )
+                .reduce(0, Integer::sum);
+
     }
 
     public static Map<LottoResult, Integer> winning(List<Lotto> lottos, List<Integer> successNumbers, int bonusNumber) {
