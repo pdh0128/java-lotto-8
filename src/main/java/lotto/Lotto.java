@@ -34,5 +34,9 @@ public class Lotto {
         System.out.println("]");
     }
 
+    public LottoResult winning(List<Integer> successNumbers, int bonusNumber) {
+        return LottoResult.winning(this.numbers, successNumbers, bonusNumber);
+    }
+
     // TODO: 추가 기능 구현
 }
