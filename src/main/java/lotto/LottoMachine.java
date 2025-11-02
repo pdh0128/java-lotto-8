@@ -45,7 +45,7 @@ public class LottoMachine {
 
         int revenue = calcurateRevenue(lottoWinningNumbers);
         double revenueRate = ((double) revenue / (lottos.size() * 1000)) * 100;
-        System.out.println("총 수익률은 " + String.format("%.2f", revenueRate) + "%입니다.");
+        System.out.println("총 수익률은 " + String.format("%.1f", revenueRate) + "%입니다.");
     }
 
     private static int calcurateRevenue(Map<LottoResult, Integer> lottoWinningNumbers) {
